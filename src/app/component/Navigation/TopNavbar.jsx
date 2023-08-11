@@ -19,12 +19,12 @@ const TopNavbar = () => {
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
     <div className='flex gap-2'>
       <Link href='/'>
-        <div className='text-3xl cursor-pointer text-black'>
+        <div className='text-3xl cursor-pointer'>
           <FaLessThan/>
         </div>
       </Link>
       <Link href='/secondpage'>
-        <div className='text-3xl cursor-pointer text-black'>
+        <div className='text-3xl cursor-pointer'>
           <FaGreaterThan/>
         </div>
       </Link>
