@@ -5,11 +5,14 @@ import { AllMoviesContext, BrowseMoviesContext } from '../context/AllMoviesConte
 import AllMoviesCards from '../component/Cards/AllMoviesCards'
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+import { FilterMoviesContext } from '../context/FilterContext';
 
 const AllMovies = () => {
 
     // const {secondpage} = BrowseMoviesContext(AllMoviesContext)
     // console.log(secondpage)
+    const {filter_movies} = FilterMoviesContext()
+    console.log(filter_movies)
 
     const {isLoading, allmovies} = BrowseMoviesContext()
     console.log(allmovies)
