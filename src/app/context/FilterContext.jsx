@@ -18,11 +18,15 @@ const FilterProvider = ({children})=>{
 
     const[state,dispatch] = useReducer(reducer,initialstate)
 
+    const sorting = ()=>{
+        dispatch({type:"SORTED_MOVIES"})
+    }
+
     useEffect(()=>{
         dispatch({type:"FILTER_MOVIES",payload:allmovies})
     },[allmovies])
 
-    return <FilterContext.Provider value={{...state}}>
+    return <FilterContext.Provider value={{...state , sorting}}>
         {children}
     </FilterContext.Provider>
 }
