@@ -1,16 +1,20 @@
 'use client'
 
-import React, { useContext } from 'react'
+import React, { useContext , useState } from 'react'
 // import './TopNavbar.css'?\
 import Avatar from '@mui/material/Avatar';
 import {FiSearch} from 'react-icons/fi'
 import {FaLessThan} from 'react-icons/fa'
 import {FaGreaterThan} from 'react-icons/fa'
 import Link from 'next/link'
+import { FilterMoviesContext } from '@/app/context/FilterContext';
 // import { AppContext, useTestContext } from '@/app/context/TestContext';
 
 const TopNavbar = () => {
-
+  const {
+    filter:{text},
+    onChangeSearch
+  } = FilterMoviesContext()
   // const {myName} = useTestContext(AppContext)
   // console.log(myName)
 
@@ -29,10 +33,23 @@ const TopNavbar = () => {
         </div>
       </Link>
     </div>
-    <div className='flex gap-1 justify-center items-center'>
-        <input className='bg-[#F7F8FF] border-2 border-gray-400 p-2 rounded-xl w-[300px]' type="search" name="" id=""  placeholder='Search...'/>
+
+    {/* search */}
+    <form
+    onSubmit={(e)=>e.preventDefault()} 
+    className='flex gap-1 justify-center items-center'>
+        <input 
+        className='bg-[#F7F8FF] border-2 border-gray-400 p-2 rounded-xl w-[300px]' 
+        type="text" 
+        name="text" 
+        id="text"  
+        placeholder='Search...'
+        value={text}
+        onChange={onChangeSearch}/>
         <span className='text-3xl relative right-12'><FiSearch/></span>
-    </div>
+    </form>
+
+
     <div className='flex justify-center items-center gap-3'>
         <Avatar className='shadow-xl' style={{backgroundColor:'gray',width:'60px',height:'60px'}}>N</Avatar>
         <div>
