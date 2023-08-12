@@ -10,15 +10,15 @@ import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { useState,Fragment } from 'react';
 
-const people = [
-    { genre: 'Sci-Fi' },
-    { genre: 'Action' },
-    { genre: 'Animation' },
-    { genre: 'Horror' },
-  ]
+// const people = [
+//     { genre: 'Sci-Fi' },
+//     { genre: 'Action' },
+//     { genre: 'Animation' },
+//     { genre: 'Horror' },
+//   ]
 
 const AllMovies = () => {
-    const [selected, setSelected] = useState(people[0])
+    // const [selected, setSelected] = useState(people[0])
     
     const {filter_movies , sorting} = FilterMoviesContext()
     console.log(filter_movies)
@@ -42,8 +42,8 @@ const AllMovies = () => {
     <div className='w-[1000px] mx-auto'>
         <div className='flex justify-between items-center'>
             <h1 className='font-semibold text-3xl'>CineBase Collection:-</h1>
-            <div className="w-72">
-                <Listbox value={selected} onChange={setSelected}>
+            {/* <div className="w-72">
+                <Listbox onClick={sorting} id="listbox" value={selected} onChange={setSelected}>
                 <div className="relative mt-1">
                 <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
                     <span className="block truncate">{selected.genre}</span>
@@ -93,10 +93,19 @@ const AllMovies = () => {
                 </Transition>
                 </div>
             </Listbox>
-    </div>
+    </div> */}
+    {/* <div>
+        <label htmlFor="sort"></label>
+        <select name="sort" id="sort" className='sort-selection--style' onClick={sorting}>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Action">Action</option>
+            <option value="Animation">Animation</option>
+            <option value="Horror">Horror</option>
+        </select>
+    </div> */}
         </div>
         <div className='flex flex-wrap gap-5 mt-5'>
-            {allmovies.map((items)=>{
+            {filter_movies.map((items)=>{
                 return(
                 items.media.map((item)=>{
                     return (
