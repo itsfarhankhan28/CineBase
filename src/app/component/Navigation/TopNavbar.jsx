@@ -17,6 +17,7 @@ const TopNavbar = () => {
   } = FilterMoviesContext()
   // const {myName} = useTestContext(AppContext)
   // console.log(myName)
+  console.log(text)
 
   return (
     <header class="text-gray-400 bg-white/30 backdrop-blur-md body-font sticky">
