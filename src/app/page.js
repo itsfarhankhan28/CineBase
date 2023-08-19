@@ -17,9 +17,6 @@ export default function Home() {
           <Navbar/>
         </div>
         <div className='w-[75%] h-auto bg-[#F7F8FF] overflow-y-visible pb-10'>
-          <div>
-            <TopNavbar/>
-          </div>
           <div className='mt-5'>
             <div>
               <Slider/>
