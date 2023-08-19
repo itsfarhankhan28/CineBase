@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import Navbar from './component/Navigation/Navbar'
 import Sidebar from './component/Navigation/Sidebar'
-import TopNavbar from './component/Navigation/TopNavbar'
 import Slider from './component/Slider/Slider'
 import Trending from './sections/Trending'
 import Animation from './sections/Animation'
