@@ -14,7 +14,7 @@ export default function Home() {
         <div className='w-[15%]'>
           <Navbar/>
         </div>
-        <div className='w-[75%] h-auto bg-[#F7F8FF] overflow-y-visible pb-10'>
+        <div className='w-[85%] h-auto bg-[#F7F8FF] overflow-y-visible pb-10'>
           <div className='mt-5'>
             <div>
               <Slider/>
@@ -29,9 +29,6 @@ export default function Home() {
               <SciFi/>
             </div>
           </div>
-        </div>
-        <div className='w-[10%]'>
-          <Sidebar/>
         </div>
       </div>
     </AppProvider>
