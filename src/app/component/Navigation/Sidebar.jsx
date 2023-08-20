@@ -2,8 +2,23 @@
 
 import React from 'react'
 import Avatar from '@mui/material/Avatar';
+// import { FilterMoviesContext } from '@/app/context/FilterContext';
+import { BrowseMoviesContext } from '@/app/context/AllMoviesContext';
 
 const Sidebar = () => {
+
+  const {allmovies} = BrowseMoviesContext()
+
+  const getuniquedata = (data)=>{
+    let newval = data.map((curelem)=>{
+      return curelem.director
+    })
+    newval = [...new Set(newval)]
+    console.log(newval)
+  }
+  console.log(allmovies)
+  const filterMovies = getuniquedata(allmovies)
+
   return (
     <>
     <div className='py-20 flex justify-center  lg:visible'>
