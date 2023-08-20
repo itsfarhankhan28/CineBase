@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Avatar from '@mui/material/Avatar';
-// import { FilterMoviesContext } from '@/app/context/FilterContext';
 import { BrowseMoviesContext } from '@/app/context/AllMoviesContext';
 
 const Sidebar = () => {
