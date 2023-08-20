@@ -18,7 +18,7 @@ const page = () => {
             <div className='w-[15%]'>
               <Navbar/>
             </div>
-            <div className='w-[75%] h-auto bg-[#F7F8FF] overflow-y-visible pb-10'>
+            <div className='w-[75%] h-auto min-h-screen bg-[#F7F8FF] overflow-y-visible pb-10'>
               <div>
                 <TopNavbar/>
               </div>
