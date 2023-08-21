@@ -9,10 +9,10 @@ import { FilterMoviesContext } from '../context/FilterContext';
 
 const AllMovies = () => {
     
-    const {filter_movies , sorting} = FilterMoviesContext()
+    const {filter_movies} = FilterMoviesContext()
     console.log(filter_movies)
 
-    const {isLoading, allmovies} = BrowseMoviesContext()
+    const {isLoading} = BrowseMoviesContext()
     if(isLoading){
         return(
             <>
