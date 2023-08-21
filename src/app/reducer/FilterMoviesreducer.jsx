@@ -45,12 +45,18 @@ const FilterMoviesreducer = (state,action)=>{
             let {all_filter_movies} = state
             let tempFilterMovies = [...all_filter_movies]
 
-            const {text} = state.filter
+            const {text, director} = state.filter
 
             if(text){
                 tempFilterMovies = tempFilterMovies.filter((curElem)=>{
                     return curElem.moviename.toLowerCase().includes(text)
                 })
+            }
+
+            if(director){
+                tempFilterMovies = tempFilterMovies.filter((curElem)=>
+                     curElem.director === director
+                )
             }
 
             return{
