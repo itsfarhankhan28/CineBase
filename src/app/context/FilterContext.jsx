@@ -12,7 +12,8 @@ const initialstate = {
     all_filter_movies : [],
     sorting_value:"Sci-Fi",
     filter:{
-        text:""
+        text:"",
+        director:"Michael Bay"
     }
 }
 
