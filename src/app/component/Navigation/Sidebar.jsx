@@ -27,16 +27,15 @@ const Sidebar = () => {
     <div className='flex justify-center lg:visible px-5'>
         <div className='flex flex-col gap-8 justify-center items-center h-screen fixed overflow-y-scroll'>
           <h1 className='text-gray-400 text-center text-xl'>See what your favourite Directors got for you</h1>
-          {filterMovies?.map((item)=>{
+          {filterMovies?.map((item,index)=>{
             console.log(item)
             return(
               <>
                 <button
-                // key={index}
+                key={index}
                 type='button'
                 name="director"
                 value={item}
-                className={item === director ? "active" : ""}
                 onClick={onChangeSearch}
                 >
                   <div className='flex flex-col items-center gap-1 cursor-pointer'>
@@ -47,7 +46,6 @@ const Sidebar = () => {
               </>
             )
           })}
-          {/* {filterMovies} */}
         </div>
     </div> 
     </>
