@@ -13,7 +13,7 @@ const initialstate = {
     sorting_value:"Sci-Fi",
     filter:{
         text:"",
-        director:"Michael Bay"
+        director:""
     }
 }
 
