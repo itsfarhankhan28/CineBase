@@ -1,7 +1,7 @@
 import connect from '@/dbConfig/dbConfig'
 import User from '@/models/userschema'
 import { NextRequest,NextResponse } from 'next/server'
-import bcrypt from 'bcrypt'
+import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
 connect()
@@ -18,7 +18,7 @@ export default async function POST(request){
             return NextResponse.json({error:"User not found"})
         }
 
-        const checkedpassword = await bcrypt.compare(password,user.password)
+        const checkedpassword = await bcryptjs.compare(password,user.password)
 
         if(!checkedpassword){
             return NextResponse.json({error:"Password is incorrect"})
