@@ -24,4 +24,6 @@ const Schema = new mongoose.Schema({
     verifyTokenExpiry:Date
 })
 
-export default UserSchema = mongoose.model("MoviesUserSchema",Schema)
+const UserSchema = mongoose.model("MoviesUserSchema",Schema)
+
+module.exports = UserSchema
