@@ -28,7 +28,7 @@ const page = () => {
     <div className="flex justify-center items-center h-screen">
         <div className="p-5 border border-black">
             <h1>Signup page</h1>
-            <form>
+            <div>
                 <div>
                     <label htmlFor="username">Username</label>
                     <input 
@@ -61,7 +61,7 @@ const page = () => {
                         Submit
                     </button>
                 </div>
-            </form>
+            </div>
         </div>
     </div>  
     </>
