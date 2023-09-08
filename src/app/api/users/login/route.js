@@ -6,9 +6,10 @@ import jwt from 'jsonwebtoken'
 
 connect()
 
-export default async function POST(request){
+export async function POST(request){
     try{
-        const reqBody = request.json()
+        const reqBody = await request.json()
+        console.log(reqBody)
         const {email,password} = reqBody
 
         //check user
@@ -39,7 +40,9 @@ export default async function POST(request){
 
         response.cookies.set('token',token,{httpOnly:true})
 
+        return response
+
     }catch(err){
-        NextResponse.json({error:"Error in Logging in User"},{status:400})
+        return NextResponse.json({error:"Error in Logging in User"},{status:400})
     }
 }
