@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const DB = process.env.MONGO_URI
+const DB = "mongodb+srv://fk28:farhankhan123@cluster0.fq2ibrs.mongodb.net/"
 
 export default function connect(){
     mongoose.connect(DB,{
