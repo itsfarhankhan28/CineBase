@@ -4,6 +4,7 @@
 import { useState } from "react"
 import axios from 'axios'
 import { useRouter } from "next/navigation"
+import { NextResponse } from "next/server"
 
 const page = () => {
     const router = useRouter()
@@ -18,8 +19,9 @@ const page = () => {
             const response = await axios.post('/api/users/signup',user)
             console.log("Signup successful",response.data)
             router.push('/login')
-        }catch(err){
-            console.log(err)
+        }catch(error){
+            console.log(error.message)
+            return NextResponse.json({error:error.message})
         }
     }
 
