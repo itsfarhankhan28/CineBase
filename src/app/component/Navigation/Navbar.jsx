@@ -8,10 +8,23 @@ import {HiUserGroup} from 'react-icons/hi'
 import {IoIosSettings} from 'react-icons/io'
 import {FiLogOut} from 'react-icons/fi'
 import {BsCameraReelsFill} from 'react-icons/bs'
-
+import axios from 'axios'
 import Link from 'next/link'
+import { NextResponse } from 'next/server'
+import { useRouter } from 'next/navigation'
  
 const Navbar = () => {
+    const router = useRouter()
+    const onLogout = async()=>{
+        try{
+            await axios.get('/api/users/logout')
+            console.log("Logout successful")
+            router.push('/login')
+        }catch(error){
+            return NextResponse.json({error:error.message})
+        }
+    }
+
   return (
     <div className='border-r-2 border-gray-200 h-screen fixed py-10 w-[15%] bg-[#F7F8FF]'>
       <div className='flex gap-5 flex-col h-[80%] items-center pl-5'>
@@ -49,7 +62,7 @@ const Navbar = () => {
             </div>
             <div className='flex gap-4 items-center'>
                 <div className='text-2xl text-gray-400'><FiLogOut/></div>
-                <div className='text-gray-400 font-semibold cursor-pointer'>Logout</div>
+                <button onClick={onLogout} className='text-gray-400 font-semibold cursor-pointer'>Logout</button>
             </div>
         </div>
       </div>
