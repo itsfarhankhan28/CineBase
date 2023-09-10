@@ -6,6 +6,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { NextResponse } from "next/server"
 import axios from 'axios'
+import Navbar from "../component/Navigation/Navbar"
 
 const page = () => {
     const router = useRouter()
@@ -26,7 +27,11 @@ const page = () => {
     }
 
   return (
-    <div className="flex justify-center items-center h-screen border">
+    <div className="flex">
+        <div className="w-[15%]">
+            <Navbar/>
+        </div>
+        <div className="flex justify-center items-center h-screen border w-[85%] bg-[#F7F8FF]">
       <div className="p-5 flex flex-col gap-3">
         <div>
             <img className="w-[200px]" src="/IMG/authimg (2).png" alt="" />
@@ -58,11 +63,12 @@ const page = () => {
             </div>
         </div>
         <div className="mt-3 flex justify-end">
-            <button className="border-2 border-gray-400 rounded-md px-7 py-3 font-semibold text-gray-400" onClick={onLogin}>
+            <button className="border-2 border-gray-400 rounded-md px-7 py-3 font-semibold text-gray-400 bg-white" onClick={onLogin}>
                 Login
             </button>
         </div>
       </div>
+    </div>
     </div>
   )
 }
