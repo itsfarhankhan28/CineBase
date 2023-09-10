@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 
@@ -39,7 +40,7 @@ const page = () => {
             <div><img className="w-[200px]" src='/IMG/authimg (2).png' alt="" /></div>
             <div className="leading-10">
                 <h1 className="text-3xl font-semibold">Welcome, Create your account</h1>
-                <h4 className="text-md">Enter your email and create a password</h4>
+                <h4 className="text-md text-gray-400">Enter your email and create a password</h4>
             </div>
             <div className="flex flex-col gap-5">
                 <div>
