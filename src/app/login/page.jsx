@@ -20,7 +20,7 @@ const page = () => {
             const response = await axios.post('/api/users/login',user)
             console.log(response)
             NextResponse.json(response,"User Login successful")
-            router.push('/profile')
+            router.push('/secondpage')
         }catch(err){
             return NextResponse.json({error:"Error in Logging In"})
         }
