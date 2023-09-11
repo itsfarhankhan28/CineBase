@@ -24,6 +24,12 @@ const Schema = new mongoose.Schema({
     verifyTokenExpiry:Date
 })
 
-const UserSchema = mongoose.model("MoviesUserSchema",Schema)
+function getMoviesUserModel() {
+    try {
+      return mongoose.model('MoviesUserSchemas');
+    } catch (error) {
+      return mongoose.model('MoviesUserSchemas',Schema);
+    }
+  }
 
-module.exports = UserSchema
+module.exports = getMoviesUserModel()
