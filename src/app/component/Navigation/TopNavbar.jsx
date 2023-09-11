@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext , useState } from 'react'
+import React from 'react'
 // import './TopNavbar.css'?\
 import Avatar from '@mui/material/Avatar';
 import {FiSearch} from 'react-icons/fi'
@@ -8,9 +8,25 @@ import {FaLessThan} from 'react-icons/fa'
 import {FaGreaterThan} from 'react-icons/fa'
 import Link from 'next/link'
 import { FilterMoviesContext } from '@/app/context/FilterContext';
+import { useState,useEffect } from 'react';
+import axios from 'axios'
+import { NextResponse } from 'next/server';
+import {BsFillPersonFill} from 'react-icons/bs'
 // import { AppContext, useTestContext } from '@/app/context/TestContext';
 
 const TopNavbar = () => {
+  const [user,setUser] = useState()
+
+  const getUserdata = async()=>{
+    try{
+      const userdata = await axios.get('/api/users/user')
+      console.log(userdata.data.data.username)
+      setUser(userdata.data.data.username)
+    }catch(error){
+      return NextResponse.json({error:error.message})
+    }
+  }
+
   const {
     filter:{text},
     onChangeSearch
@@ -18,6 +34,10 @@ const TopNavbar = () => {
   // const {myName} = useTestContext(AppContext)
   // console.log(myName)
   console.log(text)
+
+  useEffect(()=>{
+    getUserdata()
+  },[])
 
   return (
     <header class="text-gray-400 bg-white/30 backdrop-blur-md body-font sticky">
@@ -51,10 +71,10 @@ const TopNavbar = () => {
     </form>
 
 
-    <div className='flex justify-center items-center gap-3'>
-        <Avatar className='shadow-xl' style={{backgroundColor:'gray',width:'60px',height:'60px'}}>N</Avatar>
+    <div className='flex justify-center items-center gap-2'>
+        <div className='text-[40px]'><BsFillPersonFill/></div>
         <div>
-            <h1 className='font-semibold'>Username</h1>
+            <h1 className='font-semibold'>{user}</h1>
         </div>
     </div>
   </div>
