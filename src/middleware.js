@@ -11,11 +11,6 @@ export function middleware(request){
     //get token
     const token = request.cookies.get('token')?.value || ''
 
-    //check if path is public and token is there
-    if(ispublicpath && token){
-        return NextResponse.redirect(new URL('/secondpage',request.nextUrl))
-    }
-
     if(!ispublicpath && !token){
         return NextResponse.redirect(new URL('/login',request.nextUrl))
     }
