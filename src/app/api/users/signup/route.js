@@ -30,7 +30,7 @@ export async function POST(request){
         })
 
         const saveduser = await newUser.save()
-        return NextResponse.json(saveduser,{message:"User signup successful"})
+        return NextResponse.json({message:"User signup successful"})
         console.log(saveduser)
 
     }catch(err){
