@@ -74,7 +74,7 @@ const TopNavbar = () => {
     <div className='flex justify-center items-center gap-2'>
         <div className='text-[40px]'><BsFillPersonFill/></div>
         <div>
-            <h1 className='font-semibold'>{user}</h1>
+            <h1 className='font-semibold'>{user ? user : "User not found"}</h1>
         </div>
     </div>
   </div>
