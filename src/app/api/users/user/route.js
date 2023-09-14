@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import connect from '@/dbConfig/dbConfig'
 import User from '@/models/userschema'
 import jwt from "jsonwebtoken";
+import jwt_decode from "jwt-decode";
 
 connect()
 
@@ -10,7 +11,8 @@ export async function GET(request){
         //we are retrieving the token
         const token = request.cookies.get('token')?.value || ''
         //decoding the token
-        const decodeddata = jwt.verify(token,process.env.SECRET_KEY)
+        const decodeddata = jwt_decode(token)
+        console.log(decodeddata)
         //storing email
         const email = decodeddata.email
         console.log(email)
