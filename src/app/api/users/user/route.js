@@ -10,7 +10,7 @@ export async function GET(request){
         //we are retrieving the token
         const token = request.cookies.get('token').value || ''
         //decoding the token
-        const decodeddata = jwt.verify(token,process.env.SECRET_KEY)
+        const decodeddata = jwt.decode(token)
         console.log(decodeddata)
         //storing email
         const email = decodeddata.email
