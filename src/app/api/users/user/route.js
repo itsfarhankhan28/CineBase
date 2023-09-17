@@ -19,13 +19,13 @@ export async function GET(request){
         const userId = await getTokenData(request)
         console.log(userId)
         //checking user in database in the bases of email
-        const user = await User.findOne({_id:userId}).select("-password")
+        const user = await User.findOne({_id: userId}).select("-password")
         //returning the user details
         return NextResponse.json({
             message:"User found",
             data:user
         })
     }catch(error){
-        return NextResponse.json({error:error.message})
+        return NextResponse.json({error:error.message},{status:400})
     }
 }
