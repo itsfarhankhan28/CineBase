@@ -16,7 +16,7 @@ const Trending = () => {
     if(isLoading){
         return(
             <>
-            <div className='mx-auto w-[1000px]'>
+            <div className='mx-auto w-[1200px]'>
                 <Box style={{ width: 300 }}>
                     <Skeleton width={300} height={300} variant='rounded' animation="wave" />
                 </Box>
@@ -26,7 +26,7 @@ const Trending = () => {
     }
 
   return (
-    <div className='w-[1000px] mx-auto flex flex-col gap-5'>
+    <div className='w-[1100px] mx-auto flex flex-col gap-5'>
         <h1 className='font-semibold text-3xl'>Trending Movies:-</h1>
         <div className=''>
                     <Swiper
@@ -37,9 +37,14 @@ const Trending = () => {
                 return(
                 items.media.map((item)=>{
                     return (
-                        <div className='flex gap-5' key={items.id}>
+                        <div className='flex' key={items.id}>
                             <SwiperSlide>
-                                <TrendingCards moviename={`${items.moviename}`} movieposter={`${item.imageurl}`}/>
+                                <TrendingCards 
+                                moviename={`${items.moviename}`} 
+                                movieposter={`${item.imageurl}`}
+                                year={`${items.year}`}
+                                ratings={`${items.ratings}`}
+                                />
                             </SwiperSlide>
                         </div>
                     )

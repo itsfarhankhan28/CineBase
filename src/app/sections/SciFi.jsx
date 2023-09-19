@@ -31,7 +31,7 @@ const SciFi = () => {
     },[])
 
   return (
-    <div className='w-[1000px] mx-auto flex flex-col gap-5'>
+    <div className='w-[1100px] mx-auto flex flex-col gap-5'>
         <h1 className='font-semibold text-3xl'>Science Fiction Movies:-</h1>
         <div className=''>
                     <Swiper
@@ -44,7 +44,12 @@ const SciFi = () => {
                     return (
                         <div className='flex gap-5' key={items.id}>
                             <SwiperSlide>
-                                <SciFiCards moviename={`${items.moviename}`} movieposter={`${item.imageurl}`}/>
+                                <SciFiCards 
+                                moviename={`${items.moviename}`} 
+                                movieposter={`${item.imageurl}`}
+                                ratings={`${items.ratings}`}
+                                year={`${items.year}`}
+                                />
                             </SwiperSlide>
                         </div>
                     )
