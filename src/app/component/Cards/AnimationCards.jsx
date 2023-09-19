@@ -1,4 +1,5 @@
 import React from 'react'
+import Display from './CardsDisplay/Display'
 
 const AnimationCards = (props) => {
   return (
@@ -6,8 +7,8 @@ const AnimationCards = (props) => {
     <div>
         <div
         style={{'--image-url': `url(${props.movieposter})`}}  
-        className={`w-[300px] h-[300px] rounded-2xl shadow-xl flex justify-center items-center bg-[image:var(--image-url)] bg-center bg-cover cursor-pointer`}>
-            {/* <h1>{props.moviename}</h1> */}
+        className={`w-[350px] h-[350px] rounded-2xl shadow-xl flex items-end bg-[image:var(--image-url)] bg-center bg-cover cursor-pointer`}>
+            <Display moviename={props.moviename} ratings={props.ratings} year={props.year}/>
         </div>
     </div>  
     </>
