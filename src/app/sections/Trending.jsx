@@ -6,8 +6,7 @@ import TrendingCards from '../component/Cards/TrendingCards'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useTestContext } from '../context/TestContext';
-import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
+import Loader from '../component/Loader/Loader';
 
 const Trending = () => {
 
@@ -15,13 +14,7 @@ const Trending = () => {
 
     if(isLoading){
         return(
-            <>
-            <div className='mx-auto w-[1200px]'>
-                <Box style={{ width: 300 }}>
-                    <Skeleton width={300} height={300} variant='rounded' animation="wave" />
-                </Box>
-            </div>
-            </>
+            <Loader/>
         )
     }
 

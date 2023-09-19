@@ -1,34 +1,33 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import TrendingCards from '../component/Cards/TrendingCards'
-// import { Splide, SplideSlide } from '@splidejs/react-splide';
-// import '@splidejs/react-splide/css/core';
+import React from 'react'
 import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import AnimationCards from '../component/Cards/AnimationCards';
 import SciFiCards from '../component/Cards/SciFiCards';
+import { useQuery } from 'react-query';
+import Loader from '../component/Loader/Loader';
 
 const SciFi = () => {
 
-    const [movies , setMovies] = useState([])
-
-    const getMovies = async()=>{
-        try{
+    const {isLoading,isError,data} = useQuery(
+        'SciFiMovies',
+        async()=>{
             const moviesdata = await axios.get('https://moviesapi3.onrender.com/movies?genres=Sci-Fi')
-            const actualdata = moviesdata.data
-            setMovies(actualdata)
-            console.log(movies)
-        }catch(err){
-            console.log(err)
+            return moviesdata.data
         }
+    )
+
+    if(isLoading){
+        return(
+            <Loader/>
+        )
     }
 
-    useEffect(()=>{
-        getMovies()
-    },[])
+    if(isError){
+        return <h1>Error...</h1>
+    }
 
   return (
     <div className='w-[1100px] mx-auto flex flex-col gap-5'>
@@ -38,7 +37,7 @@ const SciFi = () => {
                     spaceBetween={10}
                     slidesPerView={3}
                     >
-            {movies.map((items)=>{
+            {data.map((items)=>{
                 return(
                 items.media.map((item)=>{
                     return (
