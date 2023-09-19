@@ -1,11 +1,10 @@
 'use client'
 
 import React from 'react'
-import { AllMoviesContext, BrowseMoviesContext } from '../context/AllMoviesContext'
+import { BrowseMoviesContext } from '../context/AllMoviesContext'
 import AllMoviesCards from '../component/Cards/AllMoviesCards'
-import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
 import { FilterMoviesContext } from '../context/FilterContext';
+import Loader from '../component/Loader/Loader';
 
 const AllMovies = () => {
     
@@ -15,13 +14,7 @@ const AllMovies = () => {
     const {isLoading} = BrowseMoviesContext()
     if(isLoading){
         return(
-            <>
-            <div className='mx-auto w-[1000px]'>
-                <Box style={{ width: 300 }}>
-                    <Skeleton width={300} height={300} variant='rounded' animation="wave" />
-                </Box>
-            </div>
-            </>
+            <Loader/>
         )
     }
 
