@@ -2,9 +2,9 @@
 
 import { useQuery } from 'react-query';
 import axios from 'axios'
-import Loader from '../Loader/Loader';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
+import CarouselLoader from '../Loader/CarouselLoader';
 
 const Slider = ()=> {
 
@@ -18,7 +18,7 @@ const Slider = ()=> {
 
   if(isLoading){
     return (
-      <Loader/>
+      <CarouselLoader/>
     )
   }
 
