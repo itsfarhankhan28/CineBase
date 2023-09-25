@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
@@ -7,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useTestContext } from '../context/TestContext';
 import Loader from '../component/Loader/Loader';
+import Link from 'next/link';
 
 const Trending = () => {
 
@@ -27,17 +29,20 @@ const Trending = () => {
                     slidesPerView={3}
                     >
             {moviesdata.map((items)=>{
+                console.log(items._id)
                 return(
                 items.media.map((item)=>{
                     return (
-                        <div className='flex' key={items.id}>
+                        <div className='flex'>
                             <SwiperSlide>
+                            <Link href={`/singlemovie/${items._id}`}>
                                 <TrendingCards 
                                 moviename={`${items.moviename}`} 
                                 movieposter={`${item.imageurl}`}
                                 year={`${items.year}`}
                                 ratings={`${items.ratings}`}
                                 />
+                            </Link>
                             </SwiperSlide>
                         </div>
                     )
