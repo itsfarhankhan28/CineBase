@@ -30,12 +30,22 @@ const Animation = () => {
     }
 
   return (
-    <div className='w-[1100px] mx-auto flex flex-col gap-5'>
+    <div className='lg:w-[1100px] xxsm:w-full mx-auto flex flex-col gap-5 z-10'>
         <h1 className='font-semibold text-3xl'>Animated Movies:-</h1>
         <div className=''>
                     <Swiper
                     spaceBetween={10}
-                    slidesPerView={3}
+                    breakpoints={{
+                        350:{
+                            slidesPerView:2
+                        },
+                        768:{
+                            slidesPerView:2
+                        },
+                        1024:{
+                            slidesPerView:3
+                        }
+                    }}
                     >
             {data.map((items)=>{
                 return(
