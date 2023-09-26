@@ -20,7 +20,7 @@ const Info = (props) => {
               <div>|</div>
               <h1 className='font-semibold'>Runtime:<span className='font-normal'>{props.movietime}</span></h1>
               <div>|</div>
-              <h1 className='font-semibold'>Runtime:<span className='font-normal'>{props.year}</span></h1>
+              <h1 className='font-semibold'>Released In:<span className='font-normal'>{props.year}</span></h1>
             </div>
           </div>
         <div className=''>
