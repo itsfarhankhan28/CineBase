@@ -17,7 +17,10 @@ const Info = (props) => {
           <div>
             <div className='flex justify-between w-[400px]'>
               <h1 className='font-semibold'>Ratings:<span className='font-normal'>{props.ratings}</span></h1>
+              <div>|</div>
               <h1 className='font-semibold'>Runtime:<span className='font-normal'>{props.movietime}</span></h1>
+              <div>|</div>
+              <h1 className='font-semibold'>Runtime:<span className='font-normal'>{props.year}</span></h1>
             </div>
           </div>
         <div className=''>
