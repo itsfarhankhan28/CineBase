@@ -18,21 +18,21 @@ export default function Home() {
     <>
     <QueryClientProvider client={queryClient}>
     <AppProvider>
-      <div className='flex flex-row justify-between w-[100vw]'>
+      <div className='lg:flex flex-row justify-between lg:w-[100vw]'>
         {/* Navigation for large screen */}
-        <div className='lg:w-[15%] lg:visible xxsm:hidden'>
+        <div className='w-[15%] lg:visible lg:block hidden'>
           <Navbar/>
         </div>
         {/* Navigation for Mobile screen */}
-        <div className='xxsm:visible lg:hidden z-10'>
+        <div className='lg:hidden z-50'>
           <BottomNavigation/>
         </div>
-        <div className='w-[85%] h-auto bg-[#F7F8FF] overflow-y-visible pb-10'>
-          <div className='mt-5'>
-            <div>
+        <div className='lg:w-[85%] h-auto bg-[#F7F8FF] overflow-y-visible lg:pb-10 xxsm:pb-32'>
+          <div className='lg:mt-5'>
+            <div className='lg:visible xxsm:hidden lg:block'>
               <Slider/>
             </div>
-            <div className='mt-10'>
+            <div className='lg:mt-10'>
               <Trending/>
             </div>
             <div className='mt-10'>
