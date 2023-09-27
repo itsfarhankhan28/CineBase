@@ -31,14 +31,12 @@ const SciFi = () => {
 
   return (
     <div className='lg:w-[1100px] mx-auto flex flex-col gap-5 z-10'>
-        <h1 className='font-semibold text-3xl'>Science Fiction Movies:-</h1>
+        <h1 className='font-semibold lg:text-3xl xxsm:text-xl'>Science Fiction Movies:-</h1>
         <div className=''>
                     <Swiper
-                    spaceBetween={10}
-                    slidesPerView={3}
                     breakpoints={{
                         350:{
-                            slidesPerView:1
+                            slidesPerView:2
                         },
                         768:{
                             slidesPerView:2

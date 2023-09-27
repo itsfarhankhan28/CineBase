@@ -31,10 +31,9 @@ const Animation = () => {
 
   return (
     <div className='lg:w-[1100px] xxsm:w-full mx-auto flex flex-col gap-5 z-10'>
-        <h1 className='font-semibold text-3xl'>Animated Movies:-</h1>
+        <h1 className='font-semibold lg:text-3xl xxsm:text-xl'>Animated Movies:-</h1>
         <div className=''>
                     <Swiper
-                    spaceBetween={10}
                     breakpoints={{
                         350:{
                             slidesPerView:2
@@ -51,7 +50,7 @@ const Animation = () => {
                 return(
                 items.media.map((item)=>{
                     return (
-                        <div className='flex gap-5' key={items.id}>
+                        <div className='flex lg:gap-5' key={items.id}>
                             <SwiperSlide>
                                 <AnimationCards 
                                 moviename={`${items.moviename}`} 
