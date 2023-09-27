@@ -20,7 +20,7 @@ const AppProvidertwo = ({children})=>{
     const getAllMovies = async()=>{
         dispatch({type:'IS_LOADING'})
         try{
-            const allmovies = await axios.get('https://moviesapi3.onrender.com/movies/get')
+            const allmovies = await axios.get('https://movies-api-others.vercel.app/movies/get')
             const allmoviesdata = allmovies.data
             dispatch({type:'ALL_MOVIES_DATA',payload:allmoviesdata})
         }catch(err){
