@@ -23,7 +23,7 @@ const TopNavigation = () => {
     },[])
 
   return (
-    <div className='top-0 fixed w-full h-[50px] py-2 px-2 flex justify-between items-center backdrop-blur-lg shadow-xl z-50'>
+    <div className='top-0 fixed w-full h-[50px] py-2 px-2 flex justify-between items-center backdrop-blur-2xl shadow-xl z-50'>
         <div className='flex gap-1 justify-start items-baseline'>
             <div className='text-[30px]'><BsCameraReelsFill/></div>
             <h1 className='text-[20px] font-bold'>CineBase</h1>
