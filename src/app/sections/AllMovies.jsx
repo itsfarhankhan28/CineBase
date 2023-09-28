@@ -19,9 +19,9 @@ const AllMovies = () => {
     }
 
   return (
-    <div className='w-[1000px] mx-auto'>
+    <div className='lg:w-[1100px] mx-auto'>
         <div className='flex justify-between items-center'>
-            <h1 className='font-semibold text-3xl'>CineBase Collection:-</h1>
+            <h1 className='font-semibold lg:text-3xl xxsm:text-xl'>CineBase Collection:-</h1>
         </div>
         <div className='flex flex-wrap gap-5 mt-5'>
             {filter_movies.map((items)=>{
@@ -29,7 +29,12 @@ const AllMovies = () => {
                 items.media.map((item)=>{
                     return (
                         <div className='flex gap-5' key={items.id}>
-                            <AllMoviesCards moviename={`${items.moviename}`} movieposter={`${item.imageurl}`}/>
+                            <AllMoviesCards 
+                            moviename={`${items.moviename}`} 
+                            movieposter={`${item.imageurl}`}
+                            ratings={`${items.ratings}`}
+                            year={`${items.year}`}
+                            />
                         </div>
                     )
                 })
