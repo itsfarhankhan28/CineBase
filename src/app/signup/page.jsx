@@ -42,7 +42,7 @@ const page = () => {
         <div className="lg:hidden">
             <BottomNavigation/>
         </div>
-        <div className="lg:w-[85%] bg-[#F7F8FF]">
+        <div className="lg:w-[85%] xxsm:w-[100%] bg-[#F7F8FF]">
         <div className="flex justify-center items-center h-screen xxsm:pb-5 lg:pb-0">
         <div className="p-5 h-auto w-auto flex flex-col gap-5">
             <div><img className="lg:w-[200px] xxsm:w-[100px]" src='/IMG/authimg (2).png' alt="" /></div>
