@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation"
 import { NextResponse } from "next/server"
 import axios from 'axios'
 import Navbar from "../component/Navigation/Navbar"
+import BottomNavigation from "../component/Navigation/MobileNavigation/BottomNavigation"
+import TopNavigation from "../component/Navigation/MobileNavigation/TopNavigation"
 
 const page = () => {
     const router = useRouter()
@@ -28,19 +30,25 @@ const page = () => {
 
   return (
     <div className="flex">
-        <div className="w-[15%]">
+        <div className="lg:hidden">
+            <TopNavigation/>
+        </div>
+        <div className="lg:w-[15%] lg:visible lg:block hidden">
             <Navbar/>
         </div>
-        <div className="flex justify-center items-center h-screen border w-[85%] bg-[#F7F8FF]">
+        <div className="lg:hidden">
+            <BottomNavigation/>
+        </div>
+        <div className="flex justify-center items-center h-screen border lg:w-[85%] xxsm:w-[100%] bg-[#F7F8FF]">
       <div className="p-5 flex flex-col gap-3">
         <div>
-            <img className="w-[200px]" src="/IMG/authimg (2).png" alt="" />
+            <img className="lg:w-[200px] xxsm:w-[150px]" src="/IMG/authimg (2).png" alt="" />
         </div>
         <div className="leading-10">
-            <h1 className="text-3xl font-semibold">Welcome back</h1>
-            <h1 className="text-md text-gray-400">Please enter your email and password</h1>
+            <h1 className="lg:text-3xl xxsm:text-2xl font-semibold">Welcome back</h1>
+            <h1 className="lg:text-md text-gray-400">Please enter your email and password</h1>
         </div>
-        <div className="flex gap-5">
+        <div className="flex gap-5 lg:flex-row xxsm:flex-col">
             <div>
                 <input 
                 className="w-full p-3 border-2 border-gray-400 rounded-md"
