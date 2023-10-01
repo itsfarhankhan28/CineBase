@@ -2,13 +2,13 @@ import React from 'react'
 
 const Display = (props) => {
   return (
-    <div className='min-h-[110px] w-full p-3 backdrop-blur-3xl text-white rounded-br-lg rounded-bl-lg flex flex-col justify-between'>
+    <div className='h-full w-full p-3 flex flex-col justify-between'>
       <div>
-        <h1 className='font-semibold lg:text-lg'>{props.moviename}</h1>
+        <h1 className='font-semibold lg:text-xl'>{props.moviename}</h1>
       </div>
-      <div className='flex justify-between'>
-        <h1 className='lg:text-lg'>{props.year}</h1>
-        <h1 className='lg:text-lg'>{props.ratings}</h1>
+      <div className='flex flex-col justify-between'>
+        <h1 className='font-semibold'>Released In: <span className='font-normal'>{props.year}</span></h1>
+        <h1 className='font-semibold'>Ratings: <span className='font-normal'>{props.ratings}</span></h1>
       </div>
     </div>
   )
