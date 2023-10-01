@@ -23,7 +23,7 @@ const AllMovies = () => {
         <div className='flex justify-between items-center'>
             <h1 className='font-semibold lg:text-3xl xxsm:text-xl'>CineBase Collection:-</h1>
         </div>
-        <div className='flex flex-wrap gap-5 mt-5'>
+        <div className='flex flex-wrap gap-x-5 gap-y-10 mt-5'>
             {filter_movies.map((items)=>{
                 return(
                 items.media.map((item)=>{
