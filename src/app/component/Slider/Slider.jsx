@@ -11,7 +11,7 @@ const Slider = ()=> {
   const {isLoading,isError,data} = useQuery(
     'CarouselImage',
     async()=>{
-      const movieposter = await axios.get('https://moviesapi3.onrender.com/movies?genres=Sci-Fi')
+      const movieposter = await axios.get('https://latest-movies-api.vercel.app/movies/get')
       return movieposter.data
     }
   )
@@ -53,11 +53,12 @@ const Slider = ()=> {
               items.media.map((item)=>{
                 return (
                   <>
-                    <SplideSlide data-splide-interval="3000">
-                      <img className='h-[500px] w-[1100px] rounded-2xl brightness-[55%] relative' src={`${item.imageurl}`} alt="Image 1"/>
+                    <SplideSlide data-splide-interval="3000" className='rounded-2xl'>
+                      <img className='h-[500px] rounded-2xl w-[1100px] brightness-[55%] relative' src={`${item.imageurl}`} alt="Image 1"/>
                       <h1 className='absolute font-Carousel-font text-white bottom-28 left-5 font-semibold text-5xl'>{items.moviename}</h1>
                         <div className='flex gap-5 absolute left-5 bottom-16 text-white'>
                           <h1 className='font-semibold text-xl'>Released In: <span className='font-normal text-lg'>{items.year}</span></h1>
+                          <h1>|</h1>
                           <h1 className='font-semibold text-xl'>Ratings: <span className='font-normal text-lg'>{items.ratings}</span></h1>
                         </div>
                       <div className='text-white absolute bottom-6 left-5'>
