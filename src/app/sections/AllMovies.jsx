@@ -5,6 +5,7 @@ import { BrowseMoviesContext } from '../context/AllMoviesContext'
 import AllMoviesCards from '../component/Cards/AllMoviesCards'
 import { FilterMoviesContext } from '../context/FilterContext';
 import Loader from '../component/Loader/Loader';
+import Link from 'next/link';
 
 const AllMovies = () => {
     
@@ -29,12 +30,14 @@ const AllMovies = () => {
                 items.media.map((item)=>{
                     return (
                         <div className='flex gap-5' key={items.id}>
+                        <Link href={`/singlemovietwo/${items._id}`}>
                             <AllMoviesCards 
                             moviename={`${items.moviename}`} 
                             movieposter={`${item.imageurl}`}
                             ratings={`${items.ratings}`}
                             year={`${items.year}`}
                             />
+                        </Link>
                         </div>
                     )
                 })
