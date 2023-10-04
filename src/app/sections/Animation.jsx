@@ -9,6 +9,7 @@ import 'swiper/css';
 import AnimationCards from '../component/Cards/AnimationCards';
 import { useQuery } from 'react-query';;
 import Loader from '../component/Loader/Loader';
+import Link from 'next/link';
 
 const Animation = () => {
     const {isLoading,isError,data} = useQuery(
@@ -52,12 +53,14 @@ const Animation = () => {
                     return (
                         <div className='flex lg:gap-5' key={items.id}>
                             <SwiperSlide>
+                            <Link href={`singlemovietwo/${items._id}`}>  
                                 <AnimationCards 
                                 moviename={`${items.moviename}`} 
                                 movieposter={`${item.imageurl}`}
                                 ratings={`${items.ratings}`}
                                 year={`${items.year}`}
                                 />
+                            </Link>  
                             </SwiperSlide>
                         </div>
                     )
