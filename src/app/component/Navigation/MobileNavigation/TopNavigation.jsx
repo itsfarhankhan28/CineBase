@@ -19,7 +19,7 @@ const TopNavigation = () => {
     }
 
     useEffect(()=>{
-        getUserDetials
+        getUserDetials()
     },[])
 
   return (
