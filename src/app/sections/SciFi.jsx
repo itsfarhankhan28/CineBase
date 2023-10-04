@@ -8,6 +8,7 @@ import 'swiper/css';
 import SciFiCards from '../component/Cards/SciFiCards';
 import { useQuery } from 'react-query';
 import Loader from '../component/Loader/Loader';
+import Link from 'next/link';
 
 const SciFi = () => {
 
@@ -52,12 +53,14 @@ const SciFi = () => {
                     return (
                         <div className='flex gap-5 z-10' key={items.id}>
                             <SwiperSlide>
+                            <Link href={`/singlemovietwo/${items._id}`}>
                                 <SciFiCards 
                                 moviename={`${items.moviename}`} 
                                 movieposter={`${item.imageurl}`}
                                 ratings={`${items.ratings}`}
                                 year={`${items.year}`}
                                 />
+                            </Link>
                             </SwiperSlide>
                         </div>
                     )
