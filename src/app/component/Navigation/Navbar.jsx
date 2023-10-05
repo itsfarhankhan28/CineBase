@@ -36,11 +36,11 @@ const Navbar = () => {
             <h1 className='font-semibold text-xl text-gray-400'>Menu</h1>
             <div className='flex gap-4 items-center'>
                 <div className='text-2xl text-gray-400'><HiOutlineSearchCircle/></div>
-                <Link href='/secondpage'><div className='text-gray-400 font-semibold cursor-pointer'>Browse</div></Link>
+                <Link href='/browsemovies'><div className='text-gray-400 font-semibold cursor-pointer'>Browse</div></Link>
             </div>
             <div className='flex gap-4 items-center'>
                 <div className='text-2xl text-gray-400'><MdUpcoming/></div>
-                <div className='text-gray-400 font-semibold cursor-pointer'>Coming Soon</div>
+                <Link href='/comingsoonmovies'><div className='text-gray-400 font-semibold cursor-pointer'>Coming Soon</div></Link>
             </div>
         </div>
         <div className='flex flex-col gap-3 w-full h-[30%]'>
