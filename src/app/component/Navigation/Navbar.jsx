@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {HiOutlineSearchCircle} from 'react-icons/hi'
 import {MdUpcoming} from 'react-icons/md'
 import {GiThreeFriends} from 'react-icons/gi'
@@ -12,9 +12,11 @@ import axios from 'axios'
 import Link from 'next/link'
 import { NextResponse } from 'next/server'
 import { useRouter } from 'next/navigation'
+import {FiLogIn} from 'react-icons/fi'
  
 const Navbar = () => {
     const router = useRouter()
+    const [user,setUser] = useState()
     const onLogout = async()=>{
         try{
             await axios.get('/api/users/logout')
@@ -24,6 +26,24 @@ const Navbar = () => {
             return NextResponse.json({error:error.message})
         }
     }
+
+    const getUserDetails = async()=>{
+        try{
+            const userdetails = await axios.get('/api/users/user')
+            console.log(userdetails.data.data.username)
+            setUser(userdetails.data.data.username)
+        }catch(error){
+            return NextResponse.json({error:error.message})
+        }
+    }
+
+    const onLogIn = ()=>{
+        router.push('/login')
+    }
+
+    useEffect(()=>{
+        getUserDetails()
+    },[])
 
   return (
     <div className='border-r-2 border-gray-200 h-screen fixed py-10 w-[15%] bg-[#F7F8FF]'>
@@ -61,8 +81,15 @@ const Navbar = () => {
                 <div className='text-gray-400 font-semibold cursor-pointer'>Settings</div>
             </div>
             <div className='flex gap-4 items-center'>
+                {user ? 
+                <>
                 <div className='text-2xl text-gray-400'><FiLogOut/></div>
                 <button onClick={onLogout} className='text-gray-400 font-semibold cursor-pointer'>Logout</button>
+                </> :
+                <>
+                <div className='text-2xl text-gray-400'><FiLogIn/></div>
+                <button onClick={onLogIn} className='text-gray-400 font-semibold cursor-pointer'>LogIn</button>
+                </> }
             </div>
         </div>
       </div>
