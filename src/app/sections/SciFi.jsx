@@ -6,19 +6,19 @@ import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import SciFiCards from '../component/Cards/SciFiCards';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import Loader from '../component/Loader/Loader';
 import Link from 'next/link';
 
 const SciFi = () => {
 
-    const {isLoading,isError,data} = useQuery(
-        'SciFiMovies',
-        async()=>{
+    const {isLoading,isError,data} = useQuery({
+        queryKey:['SciFiMovies'],
+        queryFn:async()=>{
             const moviesdata = await axios.get('https://moviesapi3.onrender.com/movies?genres=Sci-Fi')
             return moviesdata.data
         }
-    )
+})
 
     if(isLoading){
         return(

@@ -1,18 +1,19 @@
 import React from 'react'
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import Loader from '../component/Loader/Loader'
 import AnimationCards from '../component/Cards/AnimationCards'
+import Link from 'next/link'
 
 const ComingSoon = () => {
 
-    const {isLoading,isError,error,data} = useQuery(
-        'Coming Soon Movies',
-        async()=>{
+    const {isLoading,isError,error,data} = useQuery({
+        queryKey:['Coming Soon Movies'],
+        queryFn:async()=>{
             const response = await axios.get('https://coming-soon-movies-api.vercel.app/movies/get')
             return response.data
         }
-    )
+})
 
     if(isLoading){
         return(
@@ -37,10 +38,12 @@ const ComingSoon = () => {
                         return (
                             <>
                             <div className='flex gap-5'>
-                            <AnimationCards
-                            moviename={`${items.moviename}`}
-                            movieposter={`${item.imageurl}`}
-                            />
+                                <Link href={`/singlemoviefour/${items._id}`}>
+                                    <AnimationCards
+                                    moviename={`${items.moviename}`}
+                                    movieposter={`${item.imageurl}`}
+                                    />
+                                </Link>
                             </div>
                             </>
                         )

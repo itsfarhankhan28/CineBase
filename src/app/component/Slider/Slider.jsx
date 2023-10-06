@@ -1,6 +1,7 @@
+// 'use server'
 /* eslint-disable @next/next/no-img-element */
 
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
@@ -9,13 +10,13 @@ import Link from 'next/link';
 
 const Slider = ()=> {
 
-  const {isLoading,isError,data} = useQuery(
-    'CarouselImage',
-    async()=>{
+  const {isLoading,isError,data} = useQuery({
+    queryKey:['CarouselImage'],
+    queryFn:async()=>{
       const movieposter = await axios.get('https://latest-movies-api.vercel.app/movies/get')
       return movieposter.data
     }
-  )
+})
 
   if(isLoading){
     return (

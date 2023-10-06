@@ -7,18 +7,18 @@ import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import AnimationCards from '../component/Cards/AnimationCards';
-import { useQuery } from 'react-query';;
+import { useQuery } from '@tanstack/react-query';
 import Loader from '../component/Loader/Loader';
 import Link from 'next/link';
 
 const Animation = () => {
-    const {isLoading,isError,data} = useQuery(
-        'AnimatedMovies',
-        async()=>{
+    const {isLoading,isError,data} = useQuery({
+        queryKey:['AnimatedMovies'],
+        queryFn:async()=>{
             const moviedata = await axios.get('https://moviesapi3.onrender.com/movies?genres=Animation')
             return moviedata.data
         }
-    )
+})
 
     if(isLoading){
         return(
