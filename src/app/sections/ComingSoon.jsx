@@ -5,6 +5,8 @@ import Loader from '../component/Loader/Loader'
 import AnimationCards from '../component/Cards/AnimationCards'
 import Link from 'next/link'
 
+const ComingSoonMovieAPI = 'https://coming-soon-movies-api.vercel.app/movies'
+
 const ComingSoon = () => {
 
     const {isLoading,isError,error,data} = useQuery({
@@ -38,7 +40,10 @@ const ComingSoon = () => {
                         return (
                             <>
                             <div className='flex gap-5'>
-                                <Link href={`/singlemoviefour/${items._id}`}>
+                                <Link 
+                                href='/[movieurl]'
+                                as={`/singlemovie/${items._id}?apiEndpoint=${ComingSoonMovieAPI}`}
+                                >
                                     <AnimationCards
                                     moviename={`${items.moviename}`}
                                     movieposter={`${item.imageurl}`}
