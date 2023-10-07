@@ -8,6 +8,8 @@ import '@splidejs/react-splide/css/core';
 import CarouselLoader from '../Loader/CarouselLoader';
 import Link from 'next/link';
 
+const LatestMoviesAPI = 'https://latest-movies-api.vercel.app/movies'
+
 const Slider = ()=> {
 
   const {isLoading,isError,data} = useQuery({
@@ -56,7 +58,10 @@ const Slider = ()=> {
                 return (
                   <>
                     <SplideSlide data-splide-interval="3000" className='rounded-2xl'>
-                    <Link href={`/singlemoviethree/${items._id}`}>
+                    <Link 
+                    href='/[movieurl]'
+                    as={`/singlemovie/${items._id}?apiEndpoint=${LatestMoviesAPI}`}
+                    >
                       <img className='h-[500px] rounded-2xl w-[1100px] brightness-[55%] relative' src={`${item.imageurl}`} alt="Image 1"/>
                       <h1 className='absolute font-Carousel-font text-white bottom-28 left-5 font-semibold text-5xl'>{items.moviename}</h1>
                         <div className='flex gap-5 absolute left-5 bottom-16 text-white'>
