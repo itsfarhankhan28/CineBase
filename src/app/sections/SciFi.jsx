@@ -10,12 +10,14 @@ import { useQuery } from '@tanstack/react-query';
 import Loader from '../component/Loader/Loader';
 import Link from 'next/link';
 
+const SciFiAPI = 'https://movies-api-others.vercel.app/movies'
+
 const SciFi = () => {
 
     const {isLoading,isError,data} = useQuery({
         queryKey:['SciFiMovies'],
         queryFn:async()=>{
-            const moviesdata = await axios.get('https://moviesapi3.onrender.com/movies?genres=Sci-Fi')
+            const moviesdata = await axios.get('https://movies-api-others.vercel.app/movies?genres=Sci-Fi')
             return moviesdata.data
         }
 })
@@ -53,7 +55,10 @@ const SciFi = () => {
                     return (
                         <div className='flex gap-5 z-10' key={items.id}>
                             <SwiperSlide>
-                            <Link href={`/singlemovietwo/${items._id}`}>
+                            <Link 
+                            href='/[movieurl]'
+                            as={`/singlemovie/${items._id}?apiEndpoint=${SciFiAPI}`}
+                            >
                                 <SciFiCards 
                                 moviename={`${items.moviename}`} 
                                 movieposter={`${item.imageurl}`}
