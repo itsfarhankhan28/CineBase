@@ -7,6 +7,8 @@ import { FilterMoviesContext } from '../context/FilterContext';
 import Loader from '../component/Loader/Loader';
 import Link from 'next/link';
 
+const OtherMoviesAPI = 'https://movies-api-others.vercel.app/movies'
+
 const AllMovies = () => {
     
     const {filter_movies} = FilterMoviesContext()
@@ -30,7 +32,10 @@ const AllMovies = () => {
                 items.media.map((item)=>{
                     return (
                         <div className='flex gap-5' key={items.id}>
-                        <Link href={`/singlemovietwo/${items._id}`}>
+                        <Link 
+                        href='/[movieurl]'
+                        as={`singlemovie/${items._id}?apiEndpoint=${OtherMoviesAPI}`}
+                        >
                             <AllMoviesCards 
                             moviename={`${items.moviename}`} 
                             movieposter={`${item.imageurl}`}
