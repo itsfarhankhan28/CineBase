@@ -21,7 +21,7 @@ const AppProvider = ({children})=>{
     const getMovies = async()=>{
         dispatch({type:"SET_LOADING"})
         try{
-            const moviesdata = await axios.get('https://trendingmovies-0fsd.onrender.com/trendingmovies/get')
+            const moviesdata = await axios.get('https://movies-api-trending.vercel.app/trendingmovies/get')
             const movies = await moviesdata.data
             dispatch({type:"MOVIES_API_DATA",payload:movies})
         }catch(err){
