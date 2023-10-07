@@ -10,7 +10,7 @@ import { useTestContext } from '../context/TestContext';
 import Loader from '../component/Loader/Loader';
 import Link from 'next/link';
 
-const TrendingMovieAPI = 'https://trendingmovies-0fsd.onrender.com/trendingmovies'
+const TrendingMovieAPI = 'https://movies-api-trending.vercel.app/trendingmovies'
 
 const Trending = () => {
 
