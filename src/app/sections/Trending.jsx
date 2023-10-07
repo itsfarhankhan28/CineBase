@@ -10,7 +10,7 @@ import { useTestContext } from '../context/TestContext';
 import Loader from '../component/Loader/Loader';
 import Link from 'next/link';
 
-// const TrendingMovieAPI = 'https://trendingmovies-0fsd.onrender.com/trendingmovies'
+const TrendingMovieAPI = 'https://trendingmovies-0fsd.onrender.com/trendingmovies'
 
 const Trending = () => {
 
@@ -48,7 +48,10 @@ const Trending = () => {
                     return (
                         <div className='flex lg:gap-5'>
                             <SwiperSlide>
-                            <Link href={`/singlemovie/${items._id}`}>
+                            <Link 
+                            href='/[movieurl]'
+                            as={`/singlemovie/${items._id}?apiEndpoint=${TrendingMovieAPI}`}
+                            >
                                 <TrendingCards
                                 moviename={`${items.moviename}`} 
                                 movieposter={`${item.imageurl}`}
