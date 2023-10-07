@@ -11,11 +11,13 @@ import { useQuery } from '@tanstack/react-query';
 import Loader from '../component/Loader/Loader';
 import Link from 'next/link';
 
+const AnimatedMoviesAPI = 'https://movies-api-others.vercel.app/movies'
+
 const Animation = () => {
     const {isLoading,isError,data} = useQuery({
         queryKey:['AnimatedMovies'],
         queryFn:async()=>{
-            const moviedata = await axios.get('https://moviesapi3.onrender.com/movies?genres=Animation')
+            const moviedata = await axios.get('https://movies-api-others.vercel.app/movies?genres=Animation')
             return moviedata.data
         }
 })
@@ -53,7 +55,10 @@ const Animation = () => {
                     return (
                         <div className='flex lg:gap-5' key={items.id}>
                             <SwiperSlide>
-                            <Link href={`singlemovietwo/${items._id}`}>  
+                            <Link 
+                            href='/[movieurl]'
+                            as={`/singlemovie/${items._id}?apiEndpoint=${AnimatedMoviesAPI}`}
+                            >  
                                 <AnimationCards 
                                 moviename={`${items.moviename}`} 
                                 movieposter={`${item.imageurl}`}
