@@ -4,15 +4,18 @@ import Skeleton from '@mui/material/Skeleton';
 
 const Loader = () => {
   return (
-    <div className='mx-auto w-[1100px] flex gap-5'>
-        <Box style={{ width: 300 }}>
-            <Skeleton width={300} height={300} variant='rounded' animation="wave" />
+    <div className='mx-auto w-[1100px] flex gap-16'>
+        <Box className="flex flex-col gap-3" style={{ width: 300 }}>
+            <Skeleton width={350} height={220} variant='rounded' animation="wave" />
+            <Skeleton width={200} height={30} variant='rounded' animation="wave"/>
         </Box>
-        <Box style={{ width: 300 }}>
-            <Skeleton width={300} height={300} variant='rounded' animation="wave" />
+        <Box className="flex flex-col gap-3" style={{ width: 300 }}>
+            <Skeleton width={350} height={220} variant='rounded' animation="wave" />
+            <Skeleton width={200} height={30} variant='rounded' animation="wave"/>
         </Box>
-        <Box style={{ width: 300 }}>
-            <Skeleton width={300} height={300} variant='rounded' animation="wave" />
+        <Box className="flex flex-col gap-3" style={{ width: 300 }}>
+            <Skeleton width={350} height={220} variant='rounded' animation="wave" />
+            <Skeleton width={200} height={30} variant='rounded' animation="wave"/>
         </Box>
     </div>
   )
