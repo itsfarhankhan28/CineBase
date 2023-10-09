@@ -48,7 +48,7 @@ const TopNavbar = () => {
           <FaLessThan/>
         </div>
       </Link>
-      <Link href='/secondpage'>
+      <Link href='/browsemovies'>
         <div className='text-3xl cursor-pointer'>
           <FaGreaterThan/>
         </div>
