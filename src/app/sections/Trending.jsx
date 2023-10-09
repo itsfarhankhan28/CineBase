@@ -7,8 +7,8 @@ import TrendingCards from '../component/Cards/TrendingCards'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useTestContext } from '../context/TestContext';
-import Loader from '../component/Loader/Loader';
 import Link from 'next/link';
+import Loader2 from '../component/Loader/Loader2';
 
 const TrendingMovieAPI = 'https://movies-api-trending.vercel.app/trendingmovies'
 
@@ -18,7 +18,7 @@ const Trending = () => {
 
     if(isLoading){
         return(
-            <Loader/>
+            <Loader2/>
         )
     }
 
