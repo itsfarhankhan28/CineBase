@@ -4,8 +4,8 @@ import React from 'react'
 import { BrowseMoviesContext } from '../context/AllMoviesContext'
 import AllMoviesCards from '../component/Cards/AllMoviesCards'
 import { FilterMoviesContext } from '../context/FilterContext';
-import Loader from '../component/Loader/Loader';
 import Link from 'next/link';
+import Loader2 from '../component/Loader/Loader2';
 
 const OtherMoviesAPI = 'https://movies-api-others.vercel.app/movies'
 
@@ -17,7 +17,7 @@ const AllMovies = () => {
     const {isLoading} = BrowseMoviesContext()
     if(isLoading){
         return(
-            <Loader/>
+            <Loader2/>
         )
     }
 
