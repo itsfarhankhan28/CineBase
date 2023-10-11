@@ -31,7 +31,7 @@ export default function Home() {
           <BottomNavigation/>
         </div>
 
-        <div className='lg:w-[85%] h-auto bg-[#F7F8FF] overflow-y-visible lg:pb-10 xxsm:pb-20 xxsm:pl-3 lg:pl-0'>
+        <div className='lg:w-[85%] h-auto overflow-y-visible lg:pb-10 xxsm:pb-20 xxsm:pl-3 lg:pl-0'>
           <div className='lg:mt-5 xxsm:mt-14'>
 
             <div className='lg:visible xxsm:hidden lg:block'>
