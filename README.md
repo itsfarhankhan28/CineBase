@@ -67,11 +67,6 @@ To run this project, you will need to add the following environment variables to
 `SECRET_KEY`
 
 
-## Demo
-
-Insert gif or link to demo
-
-
 ## API Reference
 
 #### Get all movies
