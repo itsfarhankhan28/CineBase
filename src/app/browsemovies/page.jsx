@@ -31,7 +31,7 @@ const page = () => {
               <TopNavigation/>
             </div>
 
-            <div className='lg:w-[85%] h-auto min-h-screen bg-[#F7F8FF] overflow-y-visible lg:pb-10 xxsm:pb-20 lg:pl-0 xxsm:pl-3'>
+            <div className='lg:w-[85%] h-auto min-h-screen overflow-y-visible lg:pb-10 xxsm:pb-20 lg:pl-0 xxsm:pl-3'>
               {/* Top navigation for large screen */}
               <div className='lg:visible hidden lg:block'>
                 <TopNavbar/>
