@@ -46,7 +46,7 @@ const Navbar = () => {
     },[])
 
   return (
-    <div className='border-r-2 border-gray-200 h-screen fixed py-10 w-[15%] bg-[#F7F8FF]'>
+    <div className='border-r-2 border-gray-200 h-screen fixed py-10 w-[15%]'>
       <div className='flex gap-5 flex-col h-[80%] items-center pl-5'>
         <div className='w-full h-[20%] flex gap-1 justify-start items-baseline'>
             <div className='text-[50px]'><BsCameraReelsFill/></div>
@@ -78,7 +78,7 @@ const Navbar = () => {
             <h1 className='font-semibold text-xl text-gray-400 cursor-pointer'>General</h1>
             <div className='flex gap-4 items-center'>
                 <div className='text-2xl text-gray-400'><IoIosSettings/></div>
-                <div className='text-gray-400 font-semibold cursor-pointer'>Settings</div>
+                <Link href='/settings'><div className='text-gray-400 font-semibold cursor-pointer'>Settings</div></Link>
             </div>
             <div className='flex gap-4 items-center'>
                 {user ? 
