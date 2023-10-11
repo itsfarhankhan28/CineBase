@@ -15,7 +15,7 @@ const page = () => {
         <div className='lg:hidden z-50'>
             <BottomNavigation/>
         </div>
-        <div className='lg:w-[85%] h-auto min-h-screen bg-[#F7F8FF] overflow-y-visible lg:pb-10 xxsm:pb-20 lg:pl-0 xxsm:pl-3'>
+        <div className='lg:w-[85%] h-auto min-h-screen overflow-y-visible lg:pb-10 xxsm:pb-20 lg:pl-0 xxsm:pl-3'>
             <ComingSoon/>
         </div>
     </div>
