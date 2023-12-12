@@ -1,21 +1,27 @@
 'use client'
 
 import React from 'react'
-import { BrowseMoviesContext } from '../context/AllMoviesContext'
 import AllMoviesCards from '../component/Cards/AllMoviesCards'
-import { FilterMoviesContext } from '../context/FilterContext';
 import Link from 'next/link';
 import Loader2 from '../component/Loader/Loader2';
+import { useDispatch,useSelector } from 'react-redux';
+import { fetchmovies } from '@/utils/slices/AllMoviesSlice';
+import { useEffect } from 'react';
 
 const OtherMoviesAPI = 'https://movies-api-others.vercel.app/movies'
 
 const AllMovies = () => {
-    
-    const {filter_movies} = FilterMoviesContext()
-    console.log(filter_movies)
 
-    const {isLoading} = BrowseMoviesContext()
-    if(isLoading){
+    const moviesdata = useSelector((store)=>store.allmovies.filteredmovies)
+    console.log(moviesdata)
+
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        dispatch(fetchmovies())
+    },[dispatch])
+
+    if(!moviesdata){
         return(
             <Loader2/>
         )
@@ -27,7 +33,7 @@ const AllMovies = () => {
             <h1 className='font-semibold lg:text-3xl xxsm:text-xl'>CineBase Collection:-</h1>
         </div>
         <div className='flex flex-wrap gap-x-5 gap-y-10 mt-5'>
-            {filter_movies.map((items)=>{
+            {moviesdata.map((items)=>{
                 return(
                 items.media.map((item)=>{
                     return (
@@ -37,7 +43,7 @@ const AllMovies = () => {
                         as={`singlemovie/${items._id}?apiEndpoint=${OtherMoviesAPI}`}
                         >
                             <AllMoviesCards 
-                            moviename={`${items.moviename}`} 
+                            moviename={`${items.moviename}`}
                             movieposter={`${item.imageurl}`}
                             ratings={`${items.ratings}`}
                             year={`${items.year}`}
