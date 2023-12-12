@@ -1,21 +1,20 @@
 'use client'
 
 import React from 'react'
-// import './TopNavbar.css'?\
-import Avatar from '@mui/material/Avatar';
 import {FiSearch} from 'react-icons/fi'
 import {FaLessThan} from 'react-icons/fa'
 import {FaGreaterThan} from 'react-icons/fa'
 import Link from 'next/link'
-import { FilterMoviesContext } from '@/app/context/FilterContext';
 import { useState,useEffect } from 'react';
 import axios from 'axios'
 import { NextResponse } from 'next/server';
 import {BsFillPersonFill} from 'react-icons/bs'
-// import { AppContext, useTestContext } from '@/app/context/TestContext';
+import { useDispatch } from 'react-redux';
+import { searchMovies } from '@/utils/slices/AllMoviesSlice';
 
 const TopNavbar = () => {
   const [user,setUser] = useState()
+  const [searchVal, setSearchVal] = useState('')
 
   const getUserdata = async()=>{
     try{
@@ -27,17 +26,12 @@ const TopNavbar = () => {
     }
   }
 
-  const {
-    filter:{text},
-    onChangeSearch
-  } = FilterMoviesContext()
-  // const {myName} = useTestContext(AppContext)
-  // console.log(myName)
-  console.log(text)
+  const dispatch = useDispatch()
 
   useEffect(()=>{
     getUserdata()
-  },[])
+    dispatch(searchMovies(searchVal))
+  },[searchVal,dispatch])
 
   return (
     <header class="text-gray-400 bg-white/30 backdrop-blur-md body-font sticky">
@@ -65,8 +59,8 @@ const TopNavbar = () => {
         name="text" 
         id="text"  
         placeholder='Search...'
-        value={text}
-        onChange={onChangeSearch}/>
+        value={searchVal}
+        onChange={(e)=>setSearchVal(e.target.value)}/>
         <span className='text-3xl relative right-12'><FiSearch/></span>
     </form>
 
