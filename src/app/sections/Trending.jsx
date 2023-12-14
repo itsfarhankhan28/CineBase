@@ -6,17 +6,25 @@ import React from 'react'
 import TrendingCards from '../component/Cards/TrendingCards'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { useTestContext } from '../context/TestContext';
+// import { useTestContext } from '../context/TestContext';
 import Link from 'next/link';
 import Loader2 from '../component/Loader/Loader2';
+import { useEffect } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
+import { fetchtrendingmovies } from '@/utils/slices/TrendingMoviesSlice';
 
 const TrendingMovieAPI = 'https://movies-api-trending.vercel.app/trendingmovies'
 
 const Trending = () => {
+    const trendingdata = useSelector((store)=>store.trendingmovies.trendingmovies)
 
-    const {isLoading,moviesdata} = useTestContext()
+    const dispatch = useDispatch()
 
-    if(isLoading){
+    useEffect(()=>{
+        dispatch(fetchtrendingmovies())
+    },[])
+
+    if(!trendingdata){
         return(
             <Loader2/>
         )
@@ -41,7 +49,7 @@ const Trending = () => {
                         }
                     }}
                     >
-            {moviesdata.map((items)=>{
+            {trendingdata.map((items)=>{
                 console.log(items._id)
                 return(
                 items.media.map((item)=>{
