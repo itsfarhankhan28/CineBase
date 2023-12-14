@@ -24,7 +24,7 @@ const page = () => {
         <div className='px-10 py-5 flex flex-col gap-5'>
             <h1 className='text-5xl font-semibold text-gray-400'>Settings:-</h1>
             <div>
-                <Accordion style={{ backgroundColor: theme.themeColor }}>
+                <Accordion>
                     <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
