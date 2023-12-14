@@ -12,7 +12,8 @@ import { useTheme } from 'next-themes';
 
 const page = () => {
 
-    const {resolvedTheme,setTheme,theme} = useTheme()
+    // const {resolvedTheme,setTheme,theme} = useTheme()
+    const {theme, setTheme } = useTheme()
 
   return (
     <div className='flex h-screen w-full'>
@@ -23,7 +24,7 @@ const page = () => {
         <div className='px-10 py-5 flex flex-col gap-5'>
             <h1 className='text-5xl font-semibold text-gray-400'>Settings:-</h1>
             <div>
-                <Accordion>
+                <Accordion style={{ backgroundColor: theme.themeColor }}>
                     <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
@@ -35,9 +36,20 @@ const page = () => {
                     <Typography className='font-semibold text-gray-400'>
                         Enable Dark Mode
                     </Typography>
-                    <button onClick={()=>setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}>
+                    {/* <button onClick={()=>setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}>
                         {resolvedTheme === 'dark' ? 'light' : 'dark'}
-                    </button>
+                    </button> */}
+                      <section>
+                      {/* <button onClick={()=>setTheme("light")}>
+                        Light
+                      </button>
+                      <button onClick={()=>setTheme("dark")}>
+                        Dark
+                      </button> */}
+                      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+      Toggle Theme
+    </button>
+                      </section>
                     </AccordionDetails>
                 </Accordion>
             </div>
