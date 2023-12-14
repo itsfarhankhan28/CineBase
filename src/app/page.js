@@ -5,7 +5,6 @@ import Slider from './component/Slider/Slider'
 import Trending from './sections/Trending'
 import Animation from './sections/Animation'
 import SciFi from './sections/SciFi'
-import { AppProvider } from './context/TestContext'
 import BottomNavigation from './component/Navigation/MobileNavigation/BottomNavigation'
 import TopNavigation from './component/Navigation/MobileNavigation/TopNavigation'
 
@@ -13,7 +12,6 @@ export default function Home() {
 
   return (
     <>
-    <AppProvider>
       <div className='lg:flex flex-row justify-between lg:w-[100vw]'>
 
         {/* Top navigation for Mobile screen */}
@@ -39,7 +37,7 @@ export default function Home() {
             </div>
 
             <div className='mt-10'>
-              <Trending/>
+              {/* <Trending/> */}
             </div>
 
             <div className='mt-10'>
@@ -53,7 +51,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </AppProvider>
     </>
   )
 }
