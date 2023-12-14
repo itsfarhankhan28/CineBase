@@ -7,6 +7,7 @@ import Loader2 from '../component/Loader/Loader2';
 import { useDispatch,useSelector } from 'react-redux';
 import { fetchmovies } from '@/utils/slices/AllMoviesSlice';
 import { useEffect } from 'react';
+import Dropdown from '../component/DropDown/Dropdown';
 
 const OtherMoviesAPI = 'https://movies-api-others.vercel.app/movies'
 
@@ -31,6 +32,7 @@ const AllMovies = () => {
     <div className='lg:w-[1100px] mx-auto'>
         <div className='flex justify-between items-center'>
             <h1 className='font-semibold lg:text-3xl xxsm:text-xl'>CineBase Collection:-</h1>
+            <Dropdown/>
         </div>
         <div className='flex flex-wrap gap-x-5 gap-y-10 mt-5'>
             {moviesdata.map((items)=>{
