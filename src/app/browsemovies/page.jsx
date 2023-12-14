@@ -1,21 +1,15 @@
 'use client'
 
 import React from 'react'
-import { AppProvidertwo } from '../context/AllMoviesContext'
 import AllMovies from '../sections/AllMovies'
 import Navbar from '../component/Navigation/Navbar'
-import Sidebar from '../component/Navigation/Sidebar'
 import TopNavbar from '../component/Navigation/TopNavbar'
-// import { AllMoviesContext, BrowseMoviesContext } from '../context/AllMoviesContext'
-import { FilterProvider } from '../context/FilterContext'
 import BottomNavigation from '../component/Navigation/MobileNavigation/BottomNavigation'
 import TopNavigation from '../component/Navigation/MobileNavigation/TopNavigation'
 
 const page = () => {
 
   return (
-      <AppProvidertwo>
-        <FilterProvider>
           <div className='flex flex-row justify-between lg:w-[100vw]'>
             {/* Navigation for large screen */}
             <div className='w-[15%] lg:visible lg:block hidden'>
@@ -44,8 +38,6 @@ const page = () => {
               <Sidebar/>
             </div> */}
           </div>
-        </FilterProvider>
-      </AppProvidertwo>
   )
 }
 
