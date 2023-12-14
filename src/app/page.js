@@ -37,7 +37,7 @@ export default function Home() {
             </div>
 
             <div className='mt-10'>
-              {/* <Trending/> */}
+              <Trending/>
             </div>
 
             <div className='mt-10'>
