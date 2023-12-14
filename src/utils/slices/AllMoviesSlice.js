@@ -18,6 +18,11 @@ const AllMoviesSlice = createSlice({
             state.filteredmovies = state.allmovies.filter((movies)=>{
                 return movies.moviename.toLowerCase().includes(action.payload.toLowerCase())
             })
+        },
+        filterMovies:(state,action)=>{
+            state.filteredmovies = state.allmovies.filter((movies)=>{
+                return movies.genres.includes(action.payload)
+            })
         }
     },
     extraReducers:(builder)=>{
@@ -35,6 +40,6 @@ const AllMoviesSlice = createSlice({
     }
 })
 
-export const {searchMovies} = AllMoviesSlice.actions
+export const {searchMovies,filterMovies} = AllMoviesSlice.actions
 
 export default AllMoviesSlice.reducer
