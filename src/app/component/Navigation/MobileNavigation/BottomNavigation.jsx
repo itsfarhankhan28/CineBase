@@ -45,7 +45,7 @@ const BottomNavigation = () => {
                 <IoIosSettings/>
             </div>
             <div className='text-[35px] text-gray-400'>
-                if(user ? <FiLogOut/> : <FiLogIn/>)
+                {user ? <FiLogOut/> : <FiLogIn/>}
             </div>
         </div>
     </div>
