@@ -2,7 +2,6 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Queryclientprovider from './Queryclientprovider'
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import ThemeProvider from './ThemeProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,11 +14,9 @@ export default function RootLayout({ children }) {
   return (
       <Queryclientprovider>
         <html lang="en">
-            <body>
-              <ThemeProvider>
+            <body className='bg-[#F7F8FF]'>
               {children}
               <SpeedInsights/>
-              </ThemeProvider>
             </body>
         </html>
       </Queryclientprovider>
