@@ -6,7 +6,7 @@ CineBase is your go-to movie companion, offering a user-friendly platform that p
 
 ## Tech Stack
 
-**Client:** Next.js , TailwindCSS , Tanstack React-Query , React Splide , MUI
+**Client:** Next.js , TailwindCSS , Tanstack React-Query , React Splide , MUI , Redux
 
 **Server:** Node, Express , JWT , MongoDB
 
